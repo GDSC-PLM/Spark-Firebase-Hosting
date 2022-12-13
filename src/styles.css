@@ -95,7 +95,8 @@ main #Hero {
   font-size: 18px;
 }
 
-form input {
+form input,
+form select {
   padding: 10px 6px;
   font-size: 25px;
 
