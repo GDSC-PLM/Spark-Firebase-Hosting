@@ -1,6 +1,6 @@
 // === Firebase ===
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -26,6 +26,8 @@ const registerBtn = document.getElementById('registerBtn');
 const participantNameField = document.getElementById('participantName');
 const dayField = document.getElementById('daySelect');
 
+const numberParticipantsElement = document.getElementById("numberParticipants");
+
 registerBtn.addEventListener('click', () => {
     console.log("Click!");
 
@@ -41,4 +43,20 @@ registerBtn.addEventListener('click', () => {
     } catch (error) {
         window.alert("Register error");
     }
+
+    getNumberParticipants();
 });
+
+async function getNumberParticipants() {
+    // let firebaseResponse = await getDocs(collection(db, "participants"));
+    let participantQuery = query(collection(db, "participants"), where("day", "==", "2"));
+    let firebaseResponse = await getDocs(participantQuery);
+
+    console.log(firebaseResponse);
+
+    let nParticipants = firebaseResponse.docs.length;
+
+    numberParticipantsElement.innerHTML = nParticipants + " registered participants";
+}
+
+getNumberParticipants();
