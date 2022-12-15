@@ -6,6 +6,8 @@ Spark Your Deployments with Firebase is the 3rd and last installment in the Back
 
 [Workshop Slides](https://docs.google.com/presentation/d/1jtTz2B7Xh9AldVu4VmQIgN6VCtdmqMo8VPcEvuuLamY/edit?usp=sharing)
 
+[Deployed Site URL](https://back-to-basics-f113d.web.app)
+
 # FAQs
 **Q**: I'm getting a CORS error on register.js, the code in the script doesn't work because of it.
 
